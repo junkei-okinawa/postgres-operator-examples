@@ -17,6 +17,11 @@ You can find out more information about [PGO](https://github.com/CrunchyData/pos
 [https://github.com/CrunchyData/postgres-operator](https://github.com/CrunchyData/postgres-operator)
 
 ## Postgres Operator & Hasura Graphql
+### requirements
+- kubernetes
+    - Minikube
+    - Rancher
+    - etc..
 ### 1. run proccess
 ```shellscript
 ./entry_point.sh
