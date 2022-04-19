@@ -15,3 +15,14 @@ You can find the full [PGO documentation](https://access.crunchydata.com/documen
 You can find out more information about [PGO](https://github.com/CrunchyData/postgres-operator), the [Postgres Operator](https://github.com/CrunchyData/postgres-operator) from [Crunchy Data](https://www.crunchydata.com) at the project page:
 
 [https://github.com/CrunchyData/postgres-operator](https://github.com/CrunchyData/postgres-operator)
+
+## Postgres Operator & Hasura Graphql
+### 1. run proccess
+```shellscript
+./entry_point.sh
+```
+### 2. after access hasura console URL
+```
+# example
+http://192.168.10.122:8080/console
+```
