@@ -25,3 +25,7 @@ spec:
             resources:
               requests:
                 storage: 1Gi
+  monitoring:
+    pgmonitor:
+      exporter:
+        image: registry.developers.crunchydata.com/crunchydata/crunchy-postgres-exporter:ubi8-5.0.5-0

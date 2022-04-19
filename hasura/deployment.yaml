@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hasura
+    hasuraService: custom
+  name: hasura
+  namespace: postgres-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hasura
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hasura
+    spec:
+      containers:
+      - image: hasura/graphql-engine:v2.5.0
+        imagePullPolicy: IfNotPresent
+        name: hasura
+        env:
+        - name: HASURA_GRAPHQL_DATABASE_URL
+          # value: postgres://username:password@hostname:port/dbname
+          # value: postgresql://hippo:tj-PLkwdqR%5B-O4y.Z%7D9yr;%7Cb@hippo-primary.postgres-operator.svc:5432/hippo
+          valueFrom:
+            secretKeyRef:
+              name: hippo-pguser-hippo
+              key: uri
+        ## enable the console served by server
+        - name: HASURA_GRAPHQL_ENABLE_CONSOLE
+          value: "true"
+        ## enable debugging mode. It is recommended to disable this in production
+        - name: HASURA_GRAPHQL_DEV_MODE
+          value: "true"
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
