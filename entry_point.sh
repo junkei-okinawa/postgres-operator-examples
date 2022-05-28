@@ -45,7 +45,7 @@ kubectl -n $name apply -f ./hasura
 echo 'sleep 30 sec.'
 sleep 30
 
-kubectl -n postgres-operator port-forward svc/crunchy-grafana 3000 > pf3000.out &
+kubectl -n $name port-forward svc/crunchy-grafana 3000 > pf3000.out &
 echo '3000 port forwarded for Grafana. Access the Grafana dashboard.'
 echo 'http://localhost:3000'
 

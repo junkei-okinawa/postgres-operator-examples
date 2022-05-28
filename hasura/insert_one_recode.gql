@@ -1,0 +1,13 @@
+mutation InsertRecode (
+  $id: Int!
+  $name: String!
+){
+  insert_test_table(
+    objects: {
+      id: $id
+      name: $name
+    }
+  ) {
+    affected_rows
+  }
+}
